@@ -14,17 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# ~/projects/django-web-app/merchex/merchex/urls.py
+
 
 from django.contrib import admin
 from django.urls import path
 from listings import views
 
 urlpatterns = [
-path('admin/', admin.site.urls),
-path('hello/', views.hello),
-path('about-us/', views.about),
-path('listings/', views.listings),
-path('contact-us/', views.contact),
+    path('admin/', admin.site.urls),
+    path('bands/', views.bandList),
+    path('bands/<int:id>/', views.band_detail, name='band-detail'),
+    path('about-us/', views.about),
+    path('listings/', views.listings),
+    path('contact-us/', views.contact),
 ]
 
